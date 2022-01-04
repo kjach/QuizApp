@@ -292,7 +292,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setColor(btnAnswer4, 0);
 
         progressBar = findViewById(R.id.progressBar);
-        progressBar.setProgress(time);
+        progressBar.setMax(10);
+        progressBar.setIndeterminate(false);
+        //progressBar.setProgress(time);
 
         setQuestion();
         //wywołuję przelosowanie pytań
@@ -315,7 +317,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnAnswer1:
                 if (checkAnswer(0)) {
-                    points = points + 10 + (time / 10);
+                    points += 10;
                     setColor(btnAnswer1, 1);
                 } else {
                     setColor(btnAnswer1, 2);
@@ -323,7 +325,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAnswer2:
                 if (checkAnswer(1)) {
-                    points = points + 10 + (time / 10);
+                    points += 10;
                     setColor(btnAnswer2, 1);
                 } else {
                     setColor(btnAnswer2, 2);
@@ -331,7 +333,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAnswer3:
                 if (checkAnswer(2)) {
-                    points = points + 10 + (time / 10);
+                    points += 10;
                     setColor(btnAnswer3, 1);
                 } else {
                     setColor(btnAnswer3, 2);
@@ -339,7 +341,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAnswer4:
                 if (checkAnswer(3)) {
-                    points = points + 10 + (time / 10);
+                    points += 10;
                     setColor(btnAnswer4, 1);
                 } else {
                     setColor(btnAnswer4, 2);
@@ -347,19 +349,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         //ustawic 9
-        if (questionNumber < 1) {
-            questionNumber += 1;
-            resetStuff();
-        } else {
-            //przechodzimy do ekranu końcowego, resetujemy wsio wsio wsio
-            endGame(v);
-        }
-
+        nextQuestion();
         //setQuestion();
     }
 
     private void setQuestion() {
-        time = 0;
+        progressBar.setProgress(0);
         q = questions.get(questionNumber); //ustaw pytanie
         Collections.shuffle(numbers); //przelosuj nr odpowiedzi
 
@@ -388,27 +383,29 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         //ustawianie progress bar i odliczanie czasu dla bonusowych punktów
 
-        if (questionNumber < 1) {
-            CountDownTimer = new CountDownTimer(20000, 1000) {
+        if (questionNumber < 2) {
+
+
+            CountDownTimer = new CountDownTimer(10000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    Log.v("Log_tag", "Tick of Progress" + time + millisUntilFinished);
-                    time++;
-                    time = time * 100;
-                    progressBar.setProgress((int) time / (10000));
+                    int progress = (int) (millisUntilFinished / 1000);
+                    //Log.v("Log_tag", "Tick of Progress" + time + millisUntilFinished);
+                    //time++;
+                    //time = time * 100;
+                    progressBar.setProgress(progressBar.getMax() - progress);
 
                 }
 
                 @Override
                 public void onFinish() {
                     //Do what you want
-                    progressBar.setProgress(0);
-                    resetStuff();
+                    //progressBar.setProgress(0);
+                    nextQuestion();
                 }
             };
             CountDownTimer.start();
         }
-
     }
 
     /**
@@ -418,8 +415,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
      * @return zwraca id obrazka
      */
     public int setResID(String drawableName) {
-        int resID = getResources().getIdentifier(drawableName, "drawable", getPackageName());
-        return resID;
+        return getResources().getIdentifier(drawableName, "drawable", getPackageName());
     }
 
     public void shuffleQuestions(ArrayList<Question> questions) {
@@ -444,7 +440,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             setColor(btnAnswer4, 0);
             //btnAnswer4.setBackgroundResource(android.R.drawable.btn_default);
             setQuestion();
-            time = 0;
             progressBar.setProgress(0);
         }, 1000);
     }
@@ -463,9 +458,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void endGame(View view) {
-        Intent intent = new Intent(this, SummaryActivity.class);
+    public void endGame() {
+        Intent intent = new Intent(GameActivity.this, SummaryActivity.class);
         intent.putExtra("points", points);
         startActivity(intent);
+    }
+    public void nextQuestion() {
+        if (questionNumber < 1) {
+            questionNumber++;
+            resetStuff();
+        } else {
+            endGame();
+        }
     }
 }
