@@ -8,7 +8,6 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,7 +37,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView questionTextView;
     private ImageView questionView;
-    private Question q;
     private ProgressBar progressBar;
     private CountDownTimer CountDownTimer;
 
@@ -348,7 +346,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setQuestion() {
-        q = questions.get(questionNumber); //ustaw pytanie
+        Question q = questions.get(questionNumber); //ustaw pytanie
         Collections.shuffle(numbers); //przelosuj nr odpowiedzi
         additionalPoints = 100; //ustaw pulę dodatkowych punktów
 
