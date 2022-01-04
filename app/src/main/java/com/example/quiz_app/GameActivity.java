@@ -443,6 +443,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void endGame() {
         Intent intent = new Intent(GameActivity.this, SummaryActivity.class);
         intent.putExtra("points", points);
+        intent.putExtra("rightAnswers", questionsRight);
         startActivity(intent);
     }
     public void nextQuestion() {

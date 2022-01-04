@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class SummaryActivity extends AppCompatActivity {
     TextView pointsView;
+    TextView answersView;
     Button btnRestart;
 
     @Override
@@ -19,10 +20,13 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
 
         pointsView = findViewById(R.id.pointsTextView);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             int points = extras.getInt("points");
-            pointsView.setText(String.valueOf(points));
+            int answers = extras.getInt("rightAnswers");
+            String text = String.valueOf(points) + " points!";
+            pointsView.setText(text);
         }
 
         btnRestart = findViewById(R.id.btnRestart);
