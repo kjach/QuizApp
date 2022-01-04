@@ -24,10 +24,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
-    int questionNumber = 0;
-    int points = 0;
-    int time = 0;
+
     List<Integer> numbers = IntStream.range(0, 4).boxed().collect(Collectors.toList());
+    int points;
+    int additionalPoints;
+    int questionNumber = 0;
+    int questionsRight = 0;
 
     private Button btnAnswer1;
     private Button btnAnswer2;
@@ -243,7 +245,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Answer Q29A1 = new Answer("12. generacja", false);
     Answer Q29A2 = new Answer("10. generacja", false);
     Answer Q29A3 = new Answer("11. generacja", true);
-    Answer Q29A4 = new Answer("Nie zaprezentował", true);
+    Answer Q29A4 = new Answer("Nie zaprezentował", false);
     ArrayList<Answer> q29a = new ArrayList<>(Arrays.asList(Q29A1, Q29A2, Q29A3, Q29A4));
     Question q29 = new Question("Wraz z którą wersją procesorów Intel zaprezentował Thunderbolt 4?", q29a, false);
 
@@ -269,7 +271,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
 
         questionView = findViewById(R.id.questionImageView);
-        //questionView.setImageResource(android.R.drawable.btn_default);
 
         questionTextView = findViewById(R.id.questionTextView);
         shuffleQuestions(questions);
@@ -294,21 +295,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         progressBar = findViewById(R.id.progressBar);
         progressBar.setMax(10);
         progressBar.setIndeterminate(false);
-        //progressBar.setProgress(time);
 
         setQuestion();
-        //wywołuję przelosowanie pytań
-        //shuffleQuestions(questions);
-
-        //pętla z pytaniami, ustawianie tekstu przycisków, losawnie odpowiedzi (Random), punkty, odmierzanie czasu, sprawdzenie czy odp jest prawidłowa
-
-        //while (i < 10) {
-
-
-        //}
-        //po pytaniu resetuj wsio, po grze zresetuj wsio + pytania + punkty itp
-        //---------------------------------------------------------
-
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -317,46 +305,52 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnAnswer1:
                 if (checkAnswer(0)) {
-                    points += 10;
+                    questionsRight++;
+                    points = 10 + additionalPoints;
                     setColor(btnAnswer1, 1);
                 } else {
                     setColor(btnAnswer1, 2);
                 }
+                CountDownTimer.cancel();
                 break;
             case R.id.btnAnswer2:
                 if (checkAnswer(1)) {
-                    points += 10;
+                    questionsRight++;
+                    points = 10 + additionalPoints;
                     setColor(btnAnswer2, 1);
                 } else {
                     setColor(btnAnswer2, 2);
                 }
+                CountDownTimer.cancel();
                 break;
             case R.id.btnAnswer3:
                 if (checkAnswer(2)) {
-                    points += 10;
+                    questionsRight++;
+                    points = 10 + additionalPoints;
                     setColor(btnAnswer3, 1);
                 } else {
                     setColor(btnAnswer3, 2);
                 }
+                CountDownTimer.cancel();
                 break;
             case R.id.btnAnswer4:
                 if (checkAnswer(3)) {
-                    points += 10;
+                    questionsRight++;
+                    points = 10 + additionalPoints;
                     setColor(btnAnswer4, 1);
                 } else {
                     setColor(btnAnswer4, 2);
                 }
+                CountDownTimer.cancel();
                 break;
         }
-        //ustawic 9
         nextQuestion();
-        //setQuestion();
     }
 
     private void setQuestion() {
-        progressBar.setProgress(0);
         q = questions.get(questionNumber); //ustaw pytanie
         Collections.shuffle(numbers); //przelosuj nr odpowiedzi
+        additionalPoints = 100; //ustaw pulę dodatkowych punktów
 
         /*
           Ustawianie obrazka i widoczności w zależności od tego, czy pytanie zawiera obrazek
@@ -364,13 +358,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         if (q.hasImg) {
             questionView.setVisibility(View.VISIBLE);
-            //questionView.setAlpha(255); -- do usunięcia
             questionView.setImageResource(setResID(q.getImg())); //ustaw obrazek pytania jeżeli ma
 
         } else {
-            //questionView.setAlpha(0); -- do usunięcia
             questionView.setVisibility(View.INVISIBLE);
-            //questionView.setImageResource(R.drawable.ic_launcher_background);
         }
         //ustaw tekst pytania
         questionTextView.setText(q.getQuestion());
@@ -383,24 +374,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         //ustawianie progress bar i odliczanie czasu dla bonusowych punktów
 
-        if (questionNumber < 2) {
-
-
+        if (questionNumber < 10) {
             CountDownTimer = new CountDownTimer(10000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     int progress = (int) (millisUntilFinished / 1000);
-                    //Log.v("Log_tag", "Tick of Progress" + time + millisUntilFinished);
-                    //time++;
-                    //time = time * 100;
+                    additionalPoints = (int)(millisUntilFinished / 100);
                     progressBar.setProgress(progressBar.getMax() - progress);
-
                 }
-
                 @Override
                 public void onFinish() {
-                    //Do what you want
-                    //progressBar.setProgress(0);
                     nextQuestion();
                 }
             };
@@ -426,10 +409,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return questions.get(questionNumber).getAnswers().get(numbers.get(answerIndex)).isTrue;
     }
 
-    @Override
+/*    @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
-    }
+    }*/
 
     public void resetStuff() {
         Handler handler = new Handler();
@@ -438,9 +421,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             setColor(btnAnswer2, 0);
             setColor(btnAnswer3, 0);
             setColor(btnAnswer4, 0);
-            //btnAnswer4.setBackgroundResource(android.R.drawable.btn_default);
-            setQuestion();
             progressBar.setProgress(0);
+            setQuestion();
         }, 1000);
     }
 
@@ -464,7 +446,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
     public void nextQuestion() {
-        if (questionNumber < 1) {
+        if (questionNumber < 9) {
             questionNumber++;
             resetStuff();
         } else {
