@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/MediumPurple"
     tools:context=".SummaryActivity">
 
     <TextView
@@ -31,10 +32,10 @@
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="131dp"
         android:onClick="startGame"
-        android:text="Try Again"
+        android:text="Spróbuj ponownie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pointsTextView" />
 
@@ -44,8 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="195dp"
         android:layout_marginBottom="10dp"
-        android:text="Congratulations! You have gained"
-        android:textColor="@color/Orange"
+        android:text="Gratulacje! Zdobyto.."
+        android:textColor="@color/AntiqueWhite"
         android:textSize="24dp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/pointsTextView"

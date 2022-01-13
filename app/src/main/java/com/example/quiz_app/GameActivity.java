@@ -72,37 +72,37 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Answer> q4a = new ArrayList<>(Arrays.asList(Q4A1, Q4A2, Q4A3, Q4A4));
     Question q4 = new Question("Jakie zwierzę jest na tym zdjęciu?", q4a, true, "paw");
 
-    Answer Q5A1 = new Answer("Gołąb", false);
-    Answer Q5A2 = new Answer("Paw", true);
-    Answer Q5A3 = new Answer("Kaczka", false);
-    Answer Q5A4 = new Answer("Kura", false);
+    Answer Q5A1 = new Answer("Jednorożec", false);
+    Answer Q5A2 = new Answer("Koń", true);
+    Answer Q5A3 = new Answer("Kucyk", false);
+    Answer Q5A4 = new Answer("Osioł", false);
     ArrayList<Answer> q5a = new ArrayList<>(Arrays.asList(Q5A1, Q5A2, Q5A3, Q5A4));
     Question q5 = new Question("Jakie zwierzę jest na tym zdjęciu?", q5a, true, "horse");
 
-    Answer Q6A1 = new Answer("Gołąb", false);
-    Answer Q6A2 = new Answer("Paw", true);
-    Answer Q6A3 = new Answer("Kaczka", false);
-    Answer Q6A4 = new Answer("Kura", false);
+    Answer Q6A1 = new Answer("Świnka morska", false);
+    Answer Q6A2 = new Answer("Chomik", true);
+    Answer Q6A3 = new Answer("królik", false);
+    Answer Q6A4 = new Answer("mysz", false);
     ArrayList<Answer> q6a = new ArrayList<>(Arrays.asList(Q6A1, Q6A2, Q6A3, Q6A4));
     Question q6 = new Question("Jakie zwierzę jest na tym zdjęciu?", q6a, true, "hamster");
 
-    Answer Q7A1 = new Answer("Gołąb", false);
-    Answer Q7A2 = new Answer("Paw", true);
-    Answer Q7A3 = new Answer("Kaczka", false);
-    Answer Q7A4 = new Answer("Kura", false);
+    Answer Q7A1 = new Answer("Hipopotam", false);
+    Answer Q7A2 = new Answer("Słoń", true);
+    Answer Q7A3 = new Answer("Nosorożec", false);
+    Answer Q7A4 = new Answer("Dinozaur", false);
     ArrayList<Answer> q7a = new ArrayList<>(Arrays.asList(Q7A1, Q7A2, Q7A3, Q7A4));
     Question q7 = new Question("Jakie zwierzę jest na tym zdjęciu?", q7a, true, "elephant");
 
-    Answer Q8A1 = new Answer("Gołąb", false);
-    Answer Q8A2 = new Answer("Paw", true);
-    Answer Q8A3 = new Answer("Kaczka", false);
-    Answer Q8A4 = new Answer("Kura", false);
+    Answer Q8A1 = new Answer("Kuoka", false);
+    Answer Q8A2 = new Answer("Kangur", true);
+    Answer Q8A3 = new Answer("Leniwiec", false);
+    Answer Q8A4 = new Answer("Wydra", false);
     ArrayList<Answer> q8a = new ArrayList<>(Arrays.asList(Q8A1, Q8A2, Q8A3, Q8A4));
     Question q8 = new Question("Jakie zwierzę jest na tym zdjęciu?", q8a, true, "cangaroo");
 
     Answer Q9A1 = new Answer("Plantan", true);
     Answer Q9A2 = new Answer("Banan", false);
-    Answer Q9A3 = new Answer("Nie wiem", false);
+    Answer Q9A3 = new Answer("Oscypek", false);
     Answer Q9A4 = new Answer("Zielony banan", false);
     ArrayList<Answer> q9a = new ArrayList<>(Arrays.asList(Q9A1, Q9A2, Q9A3, Q9A4));
     Question q9 = new Question("Co jest na tym zdjęciu?", q9a, true, "plantan");
@@ -114,38 +114,38 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Answer> q10a = new ArrayList<>(Arrays.asList(Q10A1, Q10A2, Q10A3, Q10A4));
     Question q10 = new Question("Jaki owoc jest na tym zdjęciu?", q10a, true, "pitaja");
 
-    Answer Q11A1 = new Answer("Gołąb", false);
-    Answer Q11A2 = new Answer("Paw", false);
-    Answer Q11A3 = new Answer("Kaczka", false);
+    Answer Q11A1 = new Answer("Kangur", false);
+    Answer Q11A2 = new Answer("Dodo", false);
+    Answer Q11A3 = new Answer("Leniwiec", false);
     Answer Q11A4 = new Answer("Kuoka", true);
     ArrayList<Answer> q11a = new ArrayList<>(Arrays.asList(Q11A1, Q11A2, Q11A3, Q11A4));
     Question q11 = new Question("Jakie zwierzę jest na tym zdjęciu?", q11a, true, "kuoka");
 
-    Answer Q12A1 = new Answer("Gołąb", false);
-    Answer Q12A2 = new Answer("Paw", true);
-    Answer Q12A3 = new Answer("Kaczka", false);
-    Answer Q12A4 = new Answer("Kura", false);
+    Answer Q12A1 = new Answer("Koala", false);
+    Answer Q12A2 = new Answer("Leniwiec", true);
+    Answer Q12A3 = new Answer("Kuoka", false);
+    Answer Q12A4 = new Answer("Kot", false);
     ArrayList<Answer> q12a = new ArrayList<>(Arrays.asList(Q12A1, Q12A2, Q12A3, Q12A4));
     Question q12 = new Question("Jakie zwierzę jest na tym zdjęciu?", q12a, true, "leniwiec");
 
-    Answer Q13A1 = new Answer("Gołąb", false);
-    Answer Q13A2 = new Answer("Ara", true);
-    Answer Q13A3 = new Answer("Kaczka", false);
-    Answer Q13A4 = new Answer("Kura", false);
+    Answer Q13A1 = new Answer("Papuga falista", false);
+    Answer Q13A2 = new Answer("Papuga Ara", true);
+    Answer Q13A3 = new Answer("Papuga Nimfa", false);
+    Answer Q13A4 = new Answer("Papuga Żako", false);
     ArrayList<Answer> q13a = new ArrayList<>(Arrays.asList(Q13A1, Q13A2, Q13A3, Q13A4));
     Question q13 = new Question("Jakie zwierzę jest na tym zdjęciu?", q13a, true, "ara");
 
-    Answer Q14A1 = new Answer("Jaszczurka", false);
+    Answer Q14A1 = new Answer("Legwan", false);
     Answer Q14A2 = new Answer("Kameleon", true);
-    Answer Q14A3 = new Answer("Kaczka", false);
-    Answer Q14A4 = new Answer("Kura", false);
+    Answer Q14A3 = new Answer("Agama", false);
+    Answer Q14A4 = new Answer("Gekon", false);
     ArrayList<Answer> q14a = new ArrayList<>(Arrays.asList(Q14A1, Q14A2, Q14A3, Q14A4));
     Question q14 = new Question("Jakie zwierzę jest na tym zdjęciu?", q14a, true, "kameleon");
 
-    Answer Q15A1 = new Answer("Gołąb", false);
-    Answer Q15A2 = new Answer("Paw", true);
-    Answer Q15A3 = new Answer("Kaczka", false);
-    Answer Q15A4 = new Answer("Kura", false);
+    Answer Q15A1 = new Answer("Leniwiec", false);
+    Answer Q15A2 = new Answer("Koala", true);
+    Answer Q15A3 = new Answer("Panda", false);
+    Answer Q15A4 = new Answer("Kuoka", false);
     ArrayList<Answer> q15a = new ArrayList<>(Arrays.asList(Q15A1, Q15A2, Q15A3, Q15A4));
     Question q15 = new Question("Jakie zwierzę jest na tym zdjęciu?", q15a, true, "koala");
 
@@ -304,7 +304,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAnswer1:
                 if (checkAnswer(0)) {
                     questionsRight++;
-                    points = 10 + additionalPoints;
+                    points = points + 10 + additionalPoints;
                     setColor(btnAnswer1, 1);
                 } else {
                     setColor(btnAnswer1, 2);
@@ -314,7 +314,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAnswer2:
                 if (checkAnswer(1)) {
                     questionsRight++;
-                    points = 10 + additionalPoints;
+                    points = points + 10 + additionalPoints;
                     setColor(btnAnswer2, 1);
                 } else {
                     setColor(btnAnswer2, 2);
@@ -324,7 +324,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAnswer3:
                 if (checkAnswer(2)) {
                     questionsRight++;
-                    points = 10 + additionalPoints;
+                    points = points + 10 + additionalPoints;
                     setColor(btnAnswer3, 1);
                 } else {
                     setColor(btnAnswer3, 2);
@@ -334,7 +334,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAnswer4:
                 if (checkAnswer(3)) {
                     questionsRight++;
-                    points = 10 + additionalPoints;
+                    points = points + 10 + additionalPoints;
                     setColor(btnAnswer4, 1);
                 } else {
                     setColor(btnAnswer4, 2);
@@ -377,7 +377,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onTick(long millisUntilFinished) {
                     int progress = (int) (millisUntilFinished / 1000);
-                    additionalPoints = (int)(millisUntilFinished / 100);
+                    additionalPoints = (int)(millisUntilFinished / 1000);
                     progressBar.setProgress(progressBar.getMax() - progress);
                 }
                 @Override
@@ -407,11 +407,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return questions.get(questionNumber).getAnswers().get(numbers.get(answerIndex)).isTrue;
     }
 
-/*    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }*/
-
     public void resetStuff() {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
@@ -427,7 +422,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void setColor(Button btn, int change) {
         switch (change) {
             case 0: //defaultowy kolor
-                btn.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.MediumPurple)));
+                btn.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.Coral)));
                 break;
             case 1: //kolor poprawnej odpowiedzi
                 btn.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.ForestGreen)));
